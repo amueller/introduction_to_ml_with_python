@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.datasets import make_blobs
+from sklearn.tree import export_graphviz
 import matplotlib.pyplot as plt
 from .plot_2d_separator import plot_2d_separator, plot_2d_classification, plot_2d_scores
 from .plot_helpers import cm2 as cm
@@ -72,6 +73,19 @@ def print_topics(topics, feature_names, sorting, topics_per_chunk=6, n_words=20)
             except:
                 pass
         print("\n")
+
+
+def get_tree(tree, **kwargs):
+    try:
+        # python3
+        from io import StringIO
+    except ImportError:
+        # python2
+        from StringIO import StringIO
+    f = StringIO()
+    export_graphviz(tree, f, **kwargs)
+    import graphviz
+    return graphviz.Source(f.getvalue())
 
 __all__ = ['plot_2d_separator', 'plot_2d_classification',
            'plot_2d_scores', 'cm', 'visualize_coefficients', 'print_topics', 'heatmap']

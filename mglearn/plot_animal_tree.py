@@ -11,7 +11,7 @@ def plot_animal_tree(ax=None):
                                format="png")
     mygraph.node("0", "Has feathers?")
     mygraph.node("1", "Can fly?")
-    mygraph.node("2", "Has finns?")
+    mygraph.node("2", "Has fins?")
     mygraph.node("3", "Hawk")
     mygraph.node("4", "Penguin")
     mygraph.node("5", "Dolphin")

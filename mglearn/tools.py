@@ -3,7 +3,7 @@ from sklearn.datasets import make_blobs
 from sklearn.tree import export_graphviz
 import matplotlib.pyplot as plt
 from .plot_2d_separator import plot_2d_separator, plot_2d_classification, plot_2d_scores
-from .plot_helpers import cm2 as cm
+from .plot_helpers import cm2 as cm, discrete_scatter
 
 
 def visualize_coefficients(coefficients, feature_names, n_top_features=25):
@@ -14,12 +14,14 @@ def visualize_coefficients(coefficients, feature_names, n_top_features=25):
     interesting_coefficients = np.hstack([negative_coefficients, positive_coefficients])
     # plot them
     plt.figure(figsize=(15, 5))
-    colors = ["red" if c < 0 else "blue" for c in coef[interesting_coefficients]]
+    colors = [cm(1) if c < 0 else cm(0) for c in coef[interesting_coefficients]]
     plt.bar(np.arange(2 * n_top_features), coef[interesting_coefficients], color=colors)
     feature_names = np.array(feature_names)
     plt.subplots_adjust(bottom=0.3)
     plt.xticks(np.arange(1, 1 + 2 * n_top_features),
                feature_names[interesting_coefficients], rotation=60, ha="right")
+    plt.ylabel("Coefficient magnitude")
+    plt.xlabel("Feature")
 
 
 def heatmap(values, xlabel, ylabel, xticklabels, yticklabels, cmap=None,
@@ -87,5 +89,6 @@ def get_tree(tree, **kwargs):
     import graphviz
     return graphviz.Source(f.getvalue())
 
-__all__ = ['plot_2d_separator', 'plot_2d_classification',
-           'plot_2d_scores', 'cm', 'visualize_coefficients', 'print_topics', 'heatmap']
+__all__ = ['plot_2d_separator', 'plot_2d_classification', 'plot_2d_scores',
+           'cm', 'visualize_coefficients', 'print_topics', 'heatmap',
+           'discrete_scatter']

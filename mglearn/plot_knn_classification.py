@@ -1,17 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
 
 from sklearn.metrics import euclidean_distances
 from sklearn.neighbors import KNeighborsClassifier
 
-import mglearn
-
-cm = ListedColormap(["#FF0000", "#0000FF"])
+from .datasets import make_forge
+from .plot_helpers import discrete_scatter
 
 
 def plot_knn_classification(n_neighbors=1):
-    X, y = mglearn.datasets.make_forge()
+    X, y = make_forge()
 
     X_test = np.array([[8.2, 3.66214339], [9.9, 3.2], [11.2, .5]])
     dist = euclidean_distances(X, X_test)
@@ -23,6 +21,7 @@ def plot_knn_classification(n_neighbors=1):
                       X[neighbor, 1] - x[1], head_width=0, fc='k', ec='k')
 
     clf = KNeighborsClassifier(n_neighbors=n_neighbors).fit(X, y)
-    plt.scatter(X_test[:, 0], X_test[:, 1], marker="x", s=60,
-                c=clf.predict(X_test), cmap=cm)
-    plt.scatter(X[:, 0], X[:, 1], c=y, s=60, linewidth=0, cmap=cm)
+    test_points = discrete_scatter(X_test[:, 0], X_test[:, 1], clf.predict(X_test), markers="*")
+    training_points = discrete_scatter(X[:, 0], X[:, 1], y)
+    plt.legend(training_points + test_points, ["training class 0", "training class 1",
+                                               "test pred 0", "test pred 1"])

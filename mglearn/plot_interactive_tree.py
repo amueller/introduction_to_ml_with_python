@@ -11,6 +11,9 @@ from sklearn.datasets import make_moons
 
 import re
 
+from .tools import discrete_scatter
+from .plot_helpers import cm2
+
 
 def tree_image(tree, fout=None):
     try:
@@ -45,8 +48,8 @@ def plot_tree_progressive():
         axes[i + 1, 1].set_axis_off()
     axes[0, 1].set_visible(False)
     for ax in axes[:, 0]:
-        ax.scatter(X[:, 0], X[:, 1], c=np.array(['r', 'b'])[y], s=60)
-    X, y = make_moons(noise=0.3, random_state=0)
+        discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
+        ax.legend(loc="best")
 
 
 def plot_tree_partition(X, y, tree, ax=None):
@@ -67,10 +70,10 @@ def plot_tree_partition(X, y, tree, ax=None):
     faces = tree.apply(X_grid)
     faces = faces.reshape(X1.shape)
     border = ndimage.laplace(faces) != 0
-    ax.contourf(X1, X2, Z, alpha=.4, colors=['red', 'blue'], levels=[0, .5, 1])
+    ax.contourf(X1, X2, Z, alpha=.4, cmap=cm2, levels=[0, .5, 1])
     ax.scatter(X1[border], X2[border], marker='.', s=1)
 
-    ax.scatter(X[:, 0], X[:, 1], c=np.array(['r', 'b'])[y], s=60)
+    discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
     ax.set_xlim(x_min, x_max)
     ax.set_ylim(y_min, y_max)
     ax.set_xticks(())

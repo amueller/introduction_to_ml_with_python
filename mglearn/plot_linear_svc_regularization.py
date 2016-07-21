@@ -3,6 +3,8 @@ import numpy as np
 from sklearn.svm import SVC
 from sklearn.datasets import make_blobs
 
+from .plot_helpers import discrete_scatter
+
 
 def plot_linear_svc_regularization():
     X, y = make_blobs(centers=2, random_state=4, n_samples=30)
@@ -15,19 +17,20 @@ def plot_linear_svc_regularization():
     y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
 
     for ax, C in zip(axes, [1e-2, 1, 1e2]):
-        ax.scatter(X[:, 0], X[:, 1], s=60, c=np.array(['red', 'blue'])[y])
+        discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
 
         svm = SVC(kernel='linear', C=C, tol=0.00001).fit(X, y)
         w = svm.coef_[0]
         a = -w[0] / w[1]
         xx = np.linspace(6, 13)
         yy = a * xx - (svm.intercept_[0]) / w[1]
-        ax.plot(xx, yy, label="C = %.e" % C, c='k')
+        ax.plot(xx, yy, c='k')
         ax.set_xlim(x_min, x_max)
         ax.set_ylim(y_min, y_max)
         ax.set_xticks(())
         ax.set_yticks(())
         ax.set_title("C = %f" % C)
+    axes[0].legend(loc="best")
 
 if __name__ == "__main__":
     plot_linear_svc_regularization()

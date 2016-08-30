@@ -39,17 +39,24 @@ def tree_image(tree, fout=None):
 
 
 def plot_tree_progressive():
-    fig, axes = plt.subplots(4, 2, figsize=(15, 25), subplot_kw={'xticks': (), 'yticks': ()})
     X, y = make_moons(n_samples=100, noise=0.25, random_state=3)
+    plt.figure()
+    ax = plt.gca()
+    discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
+    ax.set_xticks(())
+    ax.set_yticks(())
+
+    axes = []
+    for i in range(3):
+        fig, ax = plt.subplots(1, 2, figsize=(12, 4),
+                               subplot_kw={'xticks': (), 'yticks': ()})
+        axes.append(ax)
+    axes = np.array(axes)
 
     for i, max_depth in enumerate([1, 2, 9]):
-        tree = plot_tree(X, y, max_depth=max_depth, ax=axes[i + 1, 0])
-        axes[i + 1, 1].imshow(tree_image(tree))
-        axes[i + 1, 1].set_axis_off()
-    axes[0, 1].set_visible(False)
-    for ax in axes[:, 0]:
-        discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
-        ax.legend(loc="best")
+        tree = plot_tree(X, y, max_depth=max_depth, ax=axes[i, 0])
+        axes[i, 1].imshow(tree_image(tree))
+        axes[i, 1].set_axis_off()
 
 
 def plot_tree_partition(X, y, tree, ax=None):

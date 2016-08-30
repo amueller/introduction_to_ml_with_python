@@ -6,14 +6,14 @@ from .plot_helpers import ReBl
 
 
 def plot_confusion_matrix_illustration():
+    plt.figure(figsize=(8, 8))
     confusion = np.array([[401, 2], [8, 39]])
-    plt.title("confusion_matrix")
-    plt.text(0.45, .6, confusion[0, 0], size=70, horizontalalignment='right')
-    plt.text(0.45, .1, confusion[1, 0], size=70, horizontalalignment='right')
-    plt.text(.95, .6, confusion[0, 1], size=70, horizontalalignment='right')
-    plt.text(.95, 0.1, confusion[1, 1], size=70, horizontalalignment='right')
-    plt.xticks([.25, .75], ["predicted 'not 9'", "predicted '9'"], size=20)
-    plt.yticks([.25, .75], ["true '9'", "true 'not 9'"], size=20)
+    plt.text(0.40, .7, confusion[0, 0], size=70, horizontalalignment='right')
+    plt.text(0.40, .2, confusion[1, 0], size=70, horizontalalignment='right')
+    plt.text(.90, .7, confusion[0, 1], size=70, horizontalalignment='right')
+    plt.text(.90, 0.2, confusion[1, 1], size=70, horizontalalignment='right')
+    plt.xticks([.25, .75], ["predicted 'not nine'", "predicted 'nine'"], size=20)
+    plt.yticks([.25, .75], ["true 'nine'", "true 'not nine'"], size=20)
     plt.plot([.5, .5], [0, 1], '--', c='k')
     plt.plot([0, 1], [.5, .5], '--', c='k')
 
@@ -22,7 +22,6 @@ def plot_confusion_matrix_illustration():
 
 
 def plot_binary_confusion_matrix():
-    plt.title("binary_confusion_matrix_tp_fp")
     plt.text(0.45, .6, "TN", size=100, horizontalalignment='right')
     plt.text(0.45, .1, "FN", size=100, horizontalalignment='right')
     plt.text(.95, .6, "FP", size=100, horizontalalignment='right')

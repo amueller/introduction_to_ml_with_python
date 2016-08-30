@@ -17,7 +17,7 @@ def plot_label_kfold():
     n_iter = 3
     n_samples_per_fold = 1
 
-    cv = LabelKFold(n_folds=3)
+    cv = LabelKFold(n_splits=3)
     mask = np.zeros((n_iter, n_samples))
     for i, (train, test) in enumerate(cv.split(range(12), labels=labels)):
         mask[i, train] = 1
@@ -45,8 +45,8 @@ def plot_label_kfold():
     axes.set_xlabel("Data points")
     axes.set_xticks(np.arange(n_samples) + .5)
     axes.set_xticklabels(np.arange(1, n_samples + 1))
-    axes.set_yticks(np.arange(n_iter) + .3)
-    axes.set_yticklabels(["Split %d" % x for x in range(1, n_iter + 1)] + ["labels"]);
+    axes.set_yticks(np.arange(n_iter + 1) + .3)
+    axes.set_yticklabels(["Split %d" % x for x in range(1, n_iter + 1)] + ["Group"]);
     plt.legend([boxes[0], boxes[1]], ["Training set", "Test set"], loc=(1, .3));
     plt.tight_layout()
 
@@ -55,7 +55,7 @@ def plot_label_kfold():
 def plot_shuffle_split():
     from sklearn.model_selection import ShuffleSplit
     plt.figure(figsize=(10, 2))
-    plt.title("ShuffleSplit with 10 points, train_size=5, test_size=2, n_iter=4")
+    plt.title("ShuffleSplit with 10 points, train_size=5, test_size=2, n_splits=4")
 
     axes = plt.gca()
     axes.set_frame_on(False)
@@ -65,7 +65,7 @@ def plot_shuffle_split():
     n_iter = 4
     n_samples_per_fold = 1
 
-    ss = ShuffleSplit(n_iter=4, train_size=5, test_size=2, random_state=43)
+    ss = ShuffleSplit(n_splits=4, train_size=5, test_size=2, random_state=43)
     mask = np.zeros((n_iter, n_samples))
     for i, (train, test) in enumerate(ss.split(range(10))):
         mask[i, train] = 1

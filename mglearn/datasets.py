@@ -38,7 +38,7 @@ def load_citibike():
     data_mine['one'] = 1
     data_mine['starttime'] = pd.to_datetime(data_mine.starttime)
     data_starttime = data_mine.set_index("starttime")
-    data_resampled = data_starttime.resample("3h", how="sum").fillna(0)
+    data_resampled = data_starttime.resample("3h").sum().fillna(0)
     return data_resampled.one
 
 

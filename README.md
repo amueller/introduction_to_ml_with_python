@@ -15,7 +15,10 @@ This repository provides the notebooks from which the book is created, together
 with the ``mglearn`` library of helper functions to create figures and
 datasets.
 
-For the curious ones, the cover depicts a [hellbender](https://en.wikipedia.org/wiki/Hellbender)
+For the curious ones, the cover depicts a [hellbender](https://en.wikipedia.org/wiki/Hellbender).
+
+All datasets are included in the repository, with the exception of the aclImdb dataset, which you can download from
+the page of [Andrew Maas](http://ai.stanford.edu/~amaas/data/sentiment/). See the book for details.
 
 ## Setup
 

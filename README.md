@@ -20,6 +20,15 @@ For the curious ones, the cover depicts a [hellbender](https://en.wikipedia.org/
 All datasets are included in the repository, with the exception of the aclImdb dataset, which you can download from
 the page of [Andrew Maas](http://ai.stanford.edu/~amaas/data/sentiment/). See the book for details.
 
+
+## Errata
+Please note that the first print of the book is missing the following line when listing the assumed imports:
+
+```python
+from IPython.display import display
+```
+Please add this line if you see an error involving ``display``.
+
 ## Setup
 
 To run the code, you need the packages ``numpy``, ``scipy``, ``scikit-learn``, ``matplotlib``, ``pandas`` and ``pillow``.

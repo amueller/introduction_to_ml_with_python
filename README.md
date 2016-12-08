@@ -1,6 +1,6 @@
 # Introduction to Machine Learning with Python
 
-This repository holds the code for the forthcomming book "Introduction to Machine
+This repository holds the code for the forthcoming book "Introduction to Machine
 Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido).
 You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do>).
 

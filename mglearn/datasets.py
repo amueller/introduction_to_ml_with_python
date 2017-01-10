@@ -1,9 +1,12 @@
 import numpy as np
 import pandas as pd
+import os
 from scipy import signal
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
 from .make_blobs import make_blobs
+
+DATA_FOLDER = os.path.join(os.path.dirname(__file__), "data")
 
 
 def make_forge():
@@ -34,7 +37,7 @@ def load_extended_boston():
 
 
 def load_citibike():
-    data_mine = pd.read_csv("data/citibike.csv")
+    data_mine = pd.read_csv(os.path.join(DATA_FOLDER, "citibike.csv"))
     data_mine['one'] = 1
     data_mine['starttime'] = pd.to_datetime(data_mine.starttime)
     data_starttime = data_mine.set_index("starttime")

@@ -6,7 +6,7 @@ from sklearn.datasets import load_boston
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
 from .make_blobs import make_blobs
 
-DATA_FOLDER = os.path.join(os.path.dirname(__file__), "data")
+DATA_FOLDER = os.path.join(os.path.dirname(__file__), "..", "data")
 
 
 def make_forge():

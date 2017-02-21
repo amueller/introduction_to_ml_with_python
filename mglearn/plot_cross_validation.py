@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_label_kfold():
+def plot_group_kfold():
     from sklearn.model_selection import GroupKFold
     groups = [0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]
 
@@ -36,7 +36,7 @@ def plot_label_kfold():
     axes.barh(bottom=[n_iter] * n_folds, width=[1 - 0.1] * n_folds, left=np.arange(n_folds) * n_samples_per_fold, height=.6, color="w")
 
     for i in range(12):
-        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" % labels[i], horizontalalignment="center")
+        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" % groups[i], horizontalalignment="center")
     #ax.set_ylim(4, -0.1)
             
     axes.invert_yaxis()

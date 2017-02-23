@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import euclidean_distances
 
-from mglearn.datasets import make_wave
+from .datasets import make_wave
+from .plot_helpers import cm3
 
 
 def plot_knn_regression(n_neighbors=1):
@@ -24,12 +25,14 @@ def plot_knn_regression(n_neighbors=1):
                 plt.arrow(x[0], y_, X[neighbor, 0] - x[0], y[neighbor] - y_,
                           head_width=0, fc='k', ec='k')
 
-    train, = plt.plot(X, y, 'o')
-    test, = plt.plot(X_test, -3 * np.ones(len(X_test)), '*', c='g', markersize=20)
-    pred, = plt.plot(X_test, y_pred, '*', c='b', markersize=20)
+    train, = plt.plot(X, y, 'o', c=cm3(0))
+    test, = plt.plot(X_test, -3 * np.ones(len(X_test)), '*', c=cm3(2),
+                     markersize=20)
+    pred, = plt.plot(X_test, y_pred, '*', c=cm3(0), markersize=20)
     plt.vlines(X_test, -3.1, 3.1, linestyle="--")
     plt.legend([train, test, pred],
-               ["training data/target", "test data", "test prediction"], ncol=3, loc=(.1, 1.025))
+               ["training data/target", "test data", "test prediction"],
+               ncol=3, loc=(.1, 1.025))
     plt.ylim(-3.1, 3.1)
     plt.xlabel("Feature")
     plt.ylabel("Target")

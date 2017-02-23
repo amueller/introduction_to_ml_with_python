@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.datasets import make_blobs
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, Normalizer, RobustScaler
+from sklearn.preprocessing import (StandardScaler, MinMaxScaler, Normalizer,
+                                   RobustScaler)
 from .plot_helpers import cm2
 
 
@@ -19,7 +20,8 @@ def plot_scaling():
     main_ax.set_xlim(-maxx + 1, maxx + 1)
     main_ax.set_ylim(-maxy + 1, maxy + 1)
     main_ax.set_title("Original Data")
-    other_axes = [plt.subplot2grid((2, 4), (i, j)) for j in range(2, 4) for i in range(2)]
+    other_axes = [plt.subplot2grid((2, 4), (i, j))
+                  for j in range(2, 4) for i in range(2)]
 
     for ax, scaler in zip(other_axes, [StandardScaler(), RobustScaler(),
                                        MinMaxScaler(), Normalizer(norm='l2')]):

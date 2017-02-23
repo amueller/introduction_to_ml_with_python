@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap, colorConverter, LinearSegmentedColormap
 
 
-cm_cycle = ListedColormap(['#0000aa', '#ff2020', '#50ff50', 'c', '#fff000'])
+cm_cycle = ListedColormap(['#0000aa', '#ff5050', '#50ff50', '#9040a0', '#fff000'])
 cm3 = ListedColormap(['#0000aa', '#ff2020', '#50ff50'])
 cm2 = ListedColormap(['#0000aa', '#ff2020'])
 

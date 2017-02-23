@@ -7,7 +7,7 @@ def plot_group_kfold():
     groups = [0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]
 
     plt.figure(figsize=(10, 2))
-    plt.title("LabelKFold")
+    plt.title("GroupKFold")
 
     axes = plt.gca()
     axes.set_frame_on(False)

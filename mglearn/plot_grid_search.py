@@ -23,11 +23,11 @@ def plot_cross_val_selection():
     plt.xlim(-1, len(results))
     plt.ylim(0, 1.1)
     for i, (_, row) in enumerate(results.iterrows()):
-        scores = row[['test_split%d_score' % i for i in range(5)]]
+        scores = row[['test_split%d_test_score' % i for i in range(5)]]
         marker_cv, = plt.plot([i] * 5, scores, '^', c='gray', markersize=5,
                               alpha=.5)
         marker_mean, = plt.plot(i, row.mean_test_score, 'v', c='none', alpha=1,
-                                markersize=10)
+                                markersize=10, markeredgecolor='k')
         if i == best:
             marker_best, = plt.plot(i, row.mean_test_score, 'o', c='red',
                                     fillstyle="none", alpha=1, markersize=20,
@@ -44,7 +44,7 @@ def plot_cross_val_selection():
 
 
 def plot_grid_search_overview():
-    plt.figure(figsize=(10, 3))
+    plt.figure(figsize=(10, 3), dpi=70)
     axes = plt.gca()
     axes.yaxis.set_visible(False)
     axes.xaxis.set_visible(False)

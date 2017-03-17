@@ -23,11 +23,11 @@ def visualize_coefficients(coefficients, feature_names, n_top_features=25):
         positive) and smallest (most negative)  n_top_features coefficients,
         for a total of 2 * n_top_features coefficients.
     """
-    if coefficients.ndim > 1 and coefficients.shape[1] > 1:
+    coefficients = coefficients.squeeze()
+    if coefficients.ndim > 1:
         # this is not a row or column vector
         raise ValueError("coeffients must be 1d array or column vector, got"
                          " shape {}".format(coefficients.shape))
-    coefficients = coefficients.ravel()
 
     if len(coefficients) != len(feature_names):
         raise ValueError("Number of coefficients {} doesn't match number of"

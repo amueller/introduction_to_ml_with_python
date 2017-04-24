@@ -2,7 +2,7 @@
 
 This repository holds the code for the forthcoming book "Introduction to Machine
 Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido).
-You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do>).
+You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do).
 
 The books requires the current development version of scikit-learn, that is
 0.18-dev.  Most of the book can also be used with previous versions of

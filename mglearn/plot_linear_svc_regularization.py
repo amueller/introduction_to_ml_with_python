@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
 from sklearn.datasets import make_blobs
 
 from .plot_helpers import discrete_scatter
@@ -16,10 +16,10 @@ def plot_linear_svc_regularization():
     x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
     y_min, y_max = X[:, 1].min() - .5, X[:, 1].max() + .5
 
-    for ax, C in zip(axes, [1e-2, 1, 1e2]):
+    for ax, C in zip(axes, [1e-2, 10, 1e3]):
         discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
 
-        svm = SVC(kernel='linear', C=C, tol=0.00001).fit(X, y)
+        svm = LinearSVC(C=C, tol=0.00001, dual=False).fit(X, y)
         w = svm.coef_[0]
         a = -w[0] / w[1]
         xx = np.linspace(6, 13)

@@ -1,4 +1,4 @@
-from scipy.misc import imread
+from scipy.ndimage import imread
 import matplotlib.pyplot as plt
 
 

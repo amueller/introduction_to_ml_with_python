@@ -20,6 +20,9 @@ For the curious ones, the cover depicts a [hellbender](https://en.wikipedia.org/
 All datasets are included in the repository, with the exception of the aclImdb dataset, which you can download from
 the page of [Andrew Maas](http://ai.stanford.edu/~amaas/data/sentiment/). See the book for details.
 
+If you get ``ImportError: No module named mglearn`` you can try to install mglearn into your python environment using
+the command ``pip install mglearn`` in your terminal or ``!pip install mglearn`` in Jupyter Notebook.
+
 
 ## Errata
 Please note that the first print of the book is missing the following line when listing the assumed imports:
@@ -39,13 +42,8 @@ The easiest way to set up an environment is by installing [Anaconda](https://www
 ### Installing packages with conda:
 If you already have a Python environment set up, and you are using the ``conda`` package manager, you can get all packages by running
 
-    conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz
+    conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz graphviz-python
 
-and then *also*
-
-    pip install graphviz
-
-(Explanation: the conda package graphiz is the C library, not the python library)
 
 ### Installing packages with pip
 If you already have a Python environment and are using pip to install packages, you need to run

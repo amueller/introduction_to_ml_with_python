@@ -28,6 +28,7 @@ def visualize_coefficients(coefficients, feature_names, n_top_features=25):
         # this is not a row or column vector
         raise ValueError("coeffients must be 1d array or column vector, got"
                          " shape {}".format(coefficients.shape))
+    coefficients = coefficients.ravel()
 
     if len(coefficients) != len(feature_names):
         raise ValueError("Number of coefficients {} doesn't match number of"
@@ -59,7 +60,7 @@ def heatmap(values, xlabel, ylabel, xticklabels, yticklabels, cmap=None,
     if ax is None:
         ax = plt.gca()
     # plot the mean cross-validation scores
-    img = ax.pcolor(values, cmap=cmap, vmin=None, vmax=None)
+    img = ax.pcolor(values, cmap=cmap, vmin=vmin, vmax=vmax)
     img.update_scalarmappable()
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)

@@ -23,7 +23,7 @@ def plot_cross_val_selection():
     plt.xlim(-1, len(results))
     plt.ylim(0, 1.1)
     for i, (_, row) in enumerate(results.iterrows()):
-        scores = row[['test_split%d_test_score' % i for i in range(5)]]
+        scores = row[['split%d_test_score' % i for i in range(5)]]
         marker_cv, = plt.plot([i] * 5, scores, '^', c='gray', markersize=5,
                               alpha=.5)
         marker_mean, = plt.plot(i, row.mean_test_score, 'v', c='none', alpha=1,

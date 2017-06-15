@@ -42,7 +42,7 @@ The easiest way to set up an environment is by installing [Anaconda](https://www
 ### Installing packages with conda:
 If you already have a Python environment set up, and you are using the ``conda`` package manager, you can get all packages by running
 
-    conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz graphviz-python
+    conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz python-graphviz
 
 
 ### Installing packages with pip

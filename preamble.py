@@ -6,7 +6,7 @@ import mglearn
 from cycler import cycler
 
 set_matplotlib_formats('pdf', 'png')
-plt.rcParams['savefig.dpi'] = 300
+plt.rcParams['figure.dpi'] = 300
 plt.rcParams['image.cmap'] = "viridis"
 plt.rcParams['image.interpolation'] = "none"
 plt.rcParams['savefig.bbox'] = "tight"

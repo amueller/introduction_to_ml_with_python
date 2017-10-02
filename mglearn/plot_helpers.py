@@ -77,7 +77,8 @@ def discrete_scatter(x1, x2, y=None, markers=None, s=10, ax=None,
 
     current_cycler = mpl.rcParams['axes.prop_cycle']
 
-    for i, (yy, cycle) in enumerate(zip(unique_y, current_cycler())):
+    for i, (yy, cycle) in enumerate(zip(unique_y, current_cycler)):
+#initially for i, (yy, cycle) in enumerate(zip(unique_y, current_cycler())):      
         mask = y == yy
         # if c is none, use color cycle
         if c is None:

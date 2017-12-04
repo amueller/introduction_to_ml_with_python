@@ -14,8 +14,7 @@ def plot_cross_val_selection():
 
     param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100],
                   'gamma': [0.001, 0.01, 0.1, 1, 10, 100]}
-    grid_search = GridSearchCV(SVC(), param_grid, cv=5,
-                               return_train_score=True)
+    grid_search = GridSearchCV(SVC(), param_grid, cv=5)
     grid_search.fit(X_trainval, y_trainval)
     results = pd.DataFrame(grid_search.cv_results_)[15:]
 

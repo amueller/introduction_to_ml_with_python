@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/amueller/introduction_to_ml_with_python/master)
+
 # Introduction to Machine Learning with Python
 
 This repository holds the code for the forthcoming book "Introduction to Machine

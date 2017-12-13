@@ -1,0 +1,10 @@
+name: python-ml
+dependencies:
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - pillow
+  - graphviz
+  - python-graphviz

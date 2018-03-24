@@ -1,11 +1,11 @@
 digraph Tree {
 node [shape=box, style="filled", color="black"] ;
-0 [label="worst radius <= 16.795\ngini = 0.468\nsamples = 426\nvalue = [159, 267]\nclass = benign", fillcolor="#399de567"] ;
-1 [label="worst concave points <= 0.136\ngini = 0.161\nsamples = 284\nvalue = [25, 259]\nclass = benign", fillcolor="#399de5e6"] ;
+0 [label="worst radius <= 16.795\ngini = 0.4679\nsamples = 426\nvalue = [159, 267]\nclass = benign", fillcolor="#399de567"] ;
+1 [label="worst concave points <= 0.1359\ngini = 0.1606\nsamples = 284\nvalue = [25, 259]\nclass = benign", fillcolor="#399de5e6"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="radius error <= 1.048\ngini = 0.031\nsamples = 252\nvalue = [4, 248]\nclass = benign", fillcolor="#399de5fb"] ;
+2 [label="radius error <= 1.0475\ngini = 0.0312\nsamples = 252\nvalue = [4, 248]\nclass = benign", fillcolor="#399de5fb"] ;
 1 -> 2 ;
-3 [label="smoothness error <= 0.003\ngini = 0.024\nsamples = 251\nvalue = [3, 248]\nclass = benign", fillcolor="#399de5fc"] ;
+3 [label="smoothness error <= 0.0033\ngini = 0.0236\nsamples = 251\nvalue = [3, 248]\nclass = benign", fillcolor="#399de5fc"] ;
 2 -> 3 ;
 4 [label="gini = 0.375\nsamples = 4\nvalue = [1, 3]\nclass = benign", fillcolor="#399de5aa"] ;
 3 -> 4 ;

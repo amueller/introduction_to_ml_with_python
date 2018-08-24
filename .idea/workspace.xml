@@ -44,7 +44,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+>>>>>>> bb88c2e29f18df7b5afa6ec49a5ee578cebb3084
     <option name="x" value="110" />
     <option name="y" value="40" />
     <option name="width" value="1750" />
@@ -146,7 +150,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+=======
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+>>>>>>> bb88c2e29f18df7b5afa6ec49a5ee578cebb3084
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />

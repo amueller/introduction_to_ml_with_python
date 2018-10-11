@@ -3,8 +3,10 @@ import numpy as np
 
 from sklearn.utils import check_array, check_random_state
 from sklearn.utils import shuffle as shuffle_
+from sklearn.utils.deprecation import deprecated
 
 
+@deprecated("Please import make_blobs directly from scikit-learn")
 def make_blobs(n_samples=100, n_features=2, centers=2, cluster_std=1.0,
                center_box=(-10.0, 10.0), shuffle=True, random_state=None):
     """Generate isotropic Gaussian blobs for clustering.

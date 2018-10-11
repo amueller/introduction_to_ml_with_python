@@ -36,11 +36,11 @@ def plot_binary_confusion_matrix():
 
 
 def plot_decision_threshold():
-    from mglearn.datasets import make_blobs
+    from sklearn.datasets import make_blobs
     from sklearn.svm import SVC
     from sklearn.model_selection import train_test_split
 
-    X, y = make_blobs(n_samples=(400, 50), centers=2, cluster_std=[7.0, 2],
+    X, y = make_blobs(n_samples=(400, 50), cluster_std=[7.0, 2],
                       random_state=22)
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 

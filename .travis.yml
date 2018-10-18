@@ -1,6 +1,15 @@
 group: travis_latest 
 language: python
 cache: pip
+env:
+  - NOTEBOOK=01-introduction.ipynb
+	- NOTEBOOK=02-supervised-learning.ipynb
+	- NOTEBOOK=03-unsupervised-learning.ipynb
+	- NOTEBOOK=04-representing-data-feature-engineering.ipynb
+	- NOTEBOOK=05-model-evaluation-and-improvement.ipynb
+	- NOTEBOOK=06-algorithm-chains-and-pipelines.ipynb
+	- NOTEBOOK=07-working-with-text-data.ipynb
+	- NOTEBOOK=08-conclusion.ipynb
 matrix:
   allow_failures:
     - python: 2.7
@@ -14,14 +23,14 @@ matrix:
       sudo: required  # required for Python 3.7 (travis-ci/travis-ci#9069)
 install:
   # - pip install -r requirements.txt
-  - pip install flake8
+  - pip install flake8 jupyter
 before_script:
   # stop the build if there are Python syntax errors or undefined names
   - flake8 . --count --select=E901,E999,F821,F822,F823 --show-source --statistics
   # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
   - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 script:
-  - true  # add other tests here
+  - jupyter nbconvert ${NOTEBOOK} --stdout --to script | flake8 - --ignore=W391
 notifications:
   on_success: change
   on_failure: change  # `always` will be the setting once code changes slow down

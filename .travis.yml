@@ -1,16 +1,16 @@
 group: travis_latest 
 language: python
 cache: pip
-env:
-  - NOTEBOOK=01-introduction.ipynb
-  - NOTEBOOK=02-supervised-learning.ipynb
-  - NOTEBOOK=03-unsupervised-learning.ipynb
-  - NOTEBOOK=04-representing-data-feature-engineering.ipynb
-  - NOTEBOOK=05-model-evaluation-and-improvement.ipynb
-  - NOTEBOOK=06-algorithm-chains-and-pipelines.ipynb
-  - NOTEBOOK=07-working-with-text-data.ipynb
-  - NOTEBOOK=08-conclusion.ipynb
 matrix:
+  env:
+    - NOTEBOOK=01-introduction.ipynb
+    - NOTEBOOK=02-supervised-learning.ipynb
+    - NOTEBOOK=03-unsupervised-learning.ipynb
+    - NOTEBOOK=04-representing-data-feature-engineering.ipynb
+    - NOTEBOOK=05-model-evaluation-and-improvement.ipynb
+    - NOTEBOOK=06-algorithm-chains-and-pipelines.ipynb
+    - NOTEBOOK=07-working-with-text-data.ipynb
+    - NOTEBOOK=08-conclusion.ipynb
   allow_failures:
     - python: 2.7
   include:
@@ -30,7 +30,8 @@ before_script:
   # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
   - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 script:
-  - jupyter nbconvert ${NOTEBOOK} --stdout --to script | flake8 - --ignore=W391
+  - jupyter nbconvert ${NOTEBOOK} --stdout --to script | flake8 - --count --select=E901,E999,F821,F822,F823 --show-source --statistics
+  - jupyter nbconvert ${NOTEBOOK} --stdout --to script | flake8 - --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 notifications:
   on_success: change
   on_failure: change  # `always` will be the setting once code changes slow down

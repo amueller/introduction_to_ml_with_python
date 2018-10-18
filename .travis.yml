@@ -25,8 +25,16 @@ before_script:
   # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
   - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 script:
-  - jupyter nbconvert ${NOTEBOOK} --stdout --to script | flake8 - --count --select=E901,E999,F821,F822,F823 --show-source --statistics
-  - jupyter nbconvert ${NOTEBOOK} --stdout --to script | flake8 - --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+  - |
+    (cat << EOF
+    from IPython import get_ipython
+    $(jupyter nbconvert ${NOTEBOOK} --stdout --to script)
+    ) | flake8 - --count --select=E901,E999,F821,F822,F823 --show-source --statistics
+  - |
+    (cat << EOF
+    from IPython import get_ipython
+    $(jupyter nbconvert ${NOTEBOOK} --stdout --to script)
+    ) | flake8 - --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 notifications:
   on_success: change
   on_failure: change  # `always` will be the setting once code changes slow down

@@ -3,13 +3,13 @@ language: python
 cache: pip
 env:
   - NOTEBOOK=01-introduction.ipynb
-	- NOTEBOOK=02-supervised-learning.ipynb
-	- NOTEBOOK=03-unsupervised-learning.ipynb
-	- NOTEBOOK=04-representing-data-feature-engineering.ipynb
-	- NOTEBOOK=05-model-evaluation-and-improvement.ipynb
-	- NOTEBOOK=06-algorithm-chains-and-pipelines.ipynb
-	- NOTEBOOK=07-working-with-text-data.ipynb
-	- NOTEBOOK=08-conclusion.ipynb
+  - NOTEBOOK=02-supervised-learning.ipynb
+  - NOTEBOOK=03-unsupervised-learning.ipynb
+  - NOTEBOOK=04-representing-data-feature-engineering.ipynb
+  - NOTEBOOK=05-model-evaluation-and-improvement.ipynb
+  - NOTEBOOK=06-algorithm-chains-and-pipelines.ipynb
+  - NOTEBOOK=07-working-with-text-data.ipynb
+  - NOTEBOOK=08-conclusion.ipynb
 matrix:
   allow_failures:
     - python: 2.7

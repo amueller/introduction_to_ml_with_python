@@ -4,7 +4,7 @@ import os
 from scipy import signal
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
-from .make_blobs import make_blobs
+from sklearn.datasets import make_blobs
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data")
 

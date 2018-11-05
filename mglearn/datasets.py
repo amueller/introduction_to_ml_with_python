@@ -2,9 +2,10 @@ import numpy as np
 import pandas as pd
 import os
 from scipy import signal
-from sklearn.datasets import load_boston
+from sklearn.datasets import load_boston, make_blobs
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
-from .make_blobs import make_blobs
+# use sklean make_blobs instead of own implementation
+#from .make_blobs import make_blobs
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data")
 

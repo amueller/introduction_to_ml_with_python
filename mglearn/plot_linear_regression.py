@@ -30,3 +30,4 @@ def plot_linear_regression_wave():
     ax.legend(["model", "training data"], loc="best")
     ax.grid(True)
     ax.set_aspect('equal')
+    return plt.show()

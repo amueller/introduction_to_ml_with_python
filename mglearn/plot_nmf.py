@@ -2,7 +2,7 @@ from sklearn.decomposition import NMF
 import matplotlib.pyplot as plt
 import numpy as np
 
-from sklearn.externals.joblib import Memory
+from joblib import Memory
 
 memory = Memory(cachedir="cache")
 

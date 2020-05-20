@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 from sklearn.tree import DecisionTreeClassifier
 
-from sklearn.externals.six import StringIO  # doctest: +SKIP
+from io import StringIO
 from sklearn.tree import export_graphviz
 from imageio import imread
 from scipy import ndimage

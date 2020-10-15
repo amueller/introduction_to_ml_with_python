@@ -1,6 +1,6 @@
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/amueller/introduction_to_ml_with_python/master)
 
-# Introduction to Machine Learning with Python
+# Introduction to Machine Learning with Python.
 
 This repository holds the code for the forthcoming book "Introduction to Machine
 Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido).
@@ -26,7 +26,7 @@ If you get ``ImportError: No module named mglearn`` you can try to install mglea
 the command ``pip install mglearn`` in your terminal or ``!pip install mglearn`` in Jupyter Notebook.
 
 
-## Errata
+## Errata.
 Please note that the first print of the book is missing the following line when listing the assumed imports:
 
 ```python
@@ -39,7 +39,7 @@ The first print of the book used a function called ``plot_group_kfold``.
 This has been renamed to ``plot_label_kfold`` because of a rename in
 scikit-learn.
 
-## Setup
+## Setup.
 
 To run the code, you need the packages ``numpy``, ``scipy``, ``scikit-learn``, ``matplotlib``, ``pandas`` and ``pillow``.
 Some of the visualizations of decision trees and neural networks structures also require ``graphviz``. The chapter
@@ -57,7 +57,7 @@ For the chapter on text processing you also need to install ``nltk`` and ``spacy
     conda install nltk spacy
 
 
-### Installing packages with pip
+### Installing packages with pip.
 If you already have a Python environment and are using pip to install packages, you need to run
 
     pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz
@@ -69,12 +69,12 @@ For the chapter on text processing you also need to install ``nltk`` and ``spacy
 
     pip install nltk spacy
 
-### Downloading English language model
+### Downloading English language model.
 For the text processing chapter, you need to download the English language model for spacy using
 
     python -m spacy download en
 
-## Submitting Errata
+## Submitting Errata.
 
 If you have errata for the (e-)book, please submit them via the [O'Reilly Website](http://www.oreilly.com/catalog/errata.csp?isbn=0636920030515).
 You can submit fixes to the code as pull-requests here, but I'd appreciate it if you would also submit them there, as this repository doesn't hold the

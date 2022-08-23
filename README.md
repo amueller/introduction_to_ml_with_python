@@ -6,7 +6,7 @@ This repository holds the code for the forthcoming book "Introduction to Machine
 Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido).
 You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do).
 
-The books requires the current stable version of scikit-learn, that is
+The book requires the current stable version of scikit-learn, that is
 0.20.0.  Most of the book can also be used with previous versions of
 scikit-learn, though you need to adjust the import for everything from the
 ``model_selection`` module, mostly ``cross_val_score``, ``train_test_split``
@@ -43,7 +43,7 @@ scikit-learn.
 
 To run the code, you need the packages ``numpy``, ``scipy``, ``scikit-learn``, ``matplotlib``, ``pandas`` and ``pillow``.
 Some of the visualizations of decision trees and neural networks structures also require ``graphviz``. The chapter
-on text processing also requirs ``nltk`` and ``spacy``.
+on text processing also requires ``nltk`` and ``spacy``.
 
 The easiest way to set up an environment is by installing [Anaconda](https://www.continuum.io/downloads).
 

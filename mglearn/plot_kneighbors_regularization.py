@@ -23,8 +23,3 @@ def plot_kneighbors_regularization():
                 label="prediction")
         ax.legend()
         ax.set_title("n_neighbors = %d" % n_neighbors)
-
-
-if __name__ == "__main__":
-    plot_kneighbors_regularization()
-    plt.show()

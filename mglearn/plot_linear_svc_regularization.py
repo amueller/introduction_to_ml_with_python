@@ -31,7 +31,3 @@ def plot_linear_svc_regularization():
         ax.set_yticks(())
         ax.set_title("C = %f" % C)
     axes[0].legend(loc="best")
-
-if __name__ == "__main__":
-    plot_linear_svc_regularization()
-    plt.show()

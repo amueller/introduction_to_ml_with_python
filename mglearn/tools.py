@@ -85,7 +85,7 @@ def make_handcrafted_dataset():
     # a carefully hand-designed dataset lol
     X, y = make_blobs(centers=2, random_state=4, n_samples=30)
     y[np.array([7, 27])] = 0
-    mask = np.ones(len(X), dtype=np.bool)
+    mask = np.ones(len(X), dtype=bool)
     mask[np.array([0, 1, 5, 26])] = 0
     X, y = X[mask], y[mask]
     return X, y

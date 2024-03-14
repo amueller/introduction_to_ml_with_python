@@ -33,9 +33,8 @@ def plot_cross_val_selection():
             marker_best, = plt.plot(i, row.mean_test_score, 'o', c='red',
                                     fillstyle="none", alpha=1, markersize=20,
                                     markeredgewidth=3)
-
     plt.xticks(range(len(results)), [str(x).strip("{}").replace("'", "") for x
-                                     in grid_search.cv_results_['params']],
+                                     in results['params']],
                rotation=90)
     plt.ylabel("Validation accuracy")
     plt.xlabel("Parameter settings")

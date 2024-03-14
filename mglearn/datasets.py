@@ -2,18 +2,18 @@ import numpy as np
 import pandas as pd
 import os
 from scipy import signal
-from sklearn.datasets import load_boston
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
 from sklearn.datasets import make_blobs
+from sklearn.utils import Bunch
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data")
+DATA_PATH = os.path.join(os.path.dirname(__file__), "data")
 
 
 def make_forge():
     # a carefully hand-designed dataset lol
     X, y = make_blobs(centers=2, random_state=4, n_samples=30)
     y[np.array([7, 27])] = 0
-    mask = np.ones(len(X), dtype=np.bool)
+    mask = np.ones(len(X), dtype=bool)
     mask[np.array([0, 1, 5, 26])] = 0
     X, y = X[mask], y[mask]
     return X, y
@@ -25,6 +25,19 @@ def make_wave(n_samples=100):
     y_no_noise = (np.sin(4 * x) + x)
     y = (y_no_noise + rnd.normal(size=len(x))) / 2
     return x.reshape(-1, 1), y
+
+
+def load_boston():
+    try:
+        from sklearn.datasets import load_boston
+        return load_boston()
+    except ImportError:
+        pass
+    data_url = "http://lib.stat.cmu.edu/datasets/boston"
+    raw_df = pd.read_csv(data_url, sep="\s+", skiprows=22, header=None)
+    data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+    target = raw_df.values[1::2, 2]
+    return Bunch(data=data, target=target)
 
 
 def load_extended_boston():

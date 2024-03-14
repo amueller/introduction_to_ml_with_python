@@ -4,7 +4,11 @@ import numpy as np
 
 from joblib import Memory
 
-memory = Memory(location="cache")
+try:
+    memory = Memory(cachedir="cache")
+except TypeError:
+    # joblib.Memory changed its API in 0.12
+    memory = Memory(location="cache", verbose=0)
 
 
 def plot_nmf_illustration():

@@ -32,12 +32,17 @@ def load_boston():
         from sklearn.datasets import load_boston
         return load_boston()
     except ImportError:
-        pass
-    data_url = "http://lib.stat.cmu.edu/datasets/boston"
-    raw_df = pd.read_csv(data_url, sep="\s+", skiprows=22, header=None)
-    data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
-    target = raw_df.values[1::2, 2]
-    return Bunch(data=data, target=target)
+        data_url = "http://lib.stat.cmu.edu/datasets/boston"
+        raw_df = pd.read_csv(data_url, sep=r"\s+", skiprows=22, header=None)
+        data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
+        target = raw_df.values[1::2, 2]
+        
+        feature_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
+        
+        return Bunch(data=data, 
+                    target=target, 
+                    feature_names=feature_names,
+                    DESCR="Boston House Prices dataset (loaded from fallback URL)")
 
 
 def load_extended_boston():

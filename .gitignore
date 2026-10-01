@@ -1,3 +1,12 @@
 *.pyc
 *.swp
 .ipynb_checkpoints/
+.venv/
+cache/
+/data/aclImdb/
+/data/aclImdb_v1.tar.gz
+/images/03-face_decomposition.png
+/mytree.dot
+/tree.dot
+/tmp
+/tmp.png

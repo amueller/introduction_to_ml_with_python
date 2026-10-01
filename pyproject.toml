@@ -1,0 +1,22 @@
+[project]
+name = "introduction-to-ml-with-python-notebooks"
+version = "0.1.0"
+description = "Reproducible environment for Introduction to Machine Learning with Python"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+    "cython",
+    "graphviz",
+    "imageio",
+    "ipython",
+    "joblib",
+    "jupyterlab",
+    "matplotlib",
+    "matplotlib-inline",
+    "nltk",
+    "numpy",
+    "pandas",
+    "pillow",
+    "scikit-learn",
+    "scipy",
+    "spacy",
+]

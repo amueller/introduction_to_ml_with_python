@@ -4,11 +4,7 @@ import numpy as np
 
 from joblib import Memory
 
-try:
-    memory = Memory(cachedir="cache")
-except TypeError:
-    # joblib.Memory changed its API in 0.12
-    memory = Memory(location="cache", verbose=0)
+memory = Memory(location="cache", verbose=0)
 
 
 def plot_nmf_illustration():
@@ -60,7 +56,10 @@ def nmf_faces(X_train, X_test):
     reduced_images = []
     for n_components in [10, 50, 100, 500]:
         # build the NMF model
-        nmf = NMF(n_components=n_components, random_state=0)
+        # A relaxed tolerance keeps the 500-component teaching example
+        # interactive on current scikit-learn versions.
+        nmf = NMF(n_components=n_components, init="random", max_iter=100,
+                  tol=.1, random_state=0)
         nmf.fit(X_train)
         # transform the test data (afterwards has n_components many dimensions)
         X_test_nmf = nmf.transform(X_test)

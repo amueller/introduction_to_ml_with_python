@@ -70,14 +70,16 @@ def heatmap(values, xlabel, ylabel, xticklabels, yticklabels, cmap=None,
     ax.set_yticklabels(yticklabels)
     ax.set_aspect(1)
 
+    # Matplotlib 3.8+ keeps the color array two-dimensional. Iterate over the
+    # original scalar values so each mesh cell receives one annotation.
     for p, color, value in zip(img.get_paths(), img.get_facecolors(),
-                               img.get_array()):
+                               np.asarray(values).ravel()):
         x, y = p.vertices[:-2, :].mean(0)
         if np.mean(color[:3]) > 0.5:
             c = 'k'
         else:
             c = 'w'
-        ax.text(x, y, fmt % value, color=c, ha="center", va="center")
+        ax.text(x, y, fmt % value.item(), color=c, ha="center", va="center")
     return img
 
 

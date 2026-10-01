@@ -106,7 +106,8 @@ def plot_kmeans_faces(km, pca, X_pca, X_people, y_people, target_names):
         inds = np.argsort(dists)[:5]
         dists[~mask] = -np.inf
         inds = np.r_[inds, np.argsort(dists)[-5:]]
-        axes[cluster, 0].imshow(pca.inverse_transform(center).reshape(image_shape), vmin=0, vmax=1)
+        center_image = pca.inverse_transform(center.reshape(1, -1))[0]
+        axes[cluster, 0].imshow(center_image.reshape(image_shape), vmin=0, vmax=1)
         for image, label, asdf, ax in zip(X_people[inds], y_people[inds],
                                           km.labels_[inds], axes[cluster, 1:]):
             ax.imshow(image.reshape(image_shape), vmin=0, vmax=1)

@@ -1,4 +1,5 @@
-from IPython.display import set_matplotlib_formats, display
+from IPython.display import display
+from matplotlib_inline.backend_inline import set_matplotlib_formats
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt

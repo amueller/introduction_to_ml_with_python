@@ -4,11 +4,7 @@ import numpy as np
 
 from joblib import Memory
 
-try:
-    memory = Memory(cachedir="cache")
-except TypeError:
-    # joblib.Memory changed its API in 0.12
-    memory = Memory(location="cache", verbose=0)
+memory = Memory(location="cache", verbose=0)
 
 def plot_pca_illustration():
     rnd = np.random.RandomState(5)

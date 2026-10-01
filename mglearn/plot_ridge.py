@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.linear_model import Ridge, LinearRegression
 from sklearn.model_selection import learning_curve, KFold
 
-from .datasets import load_extended_boston
+from .datasets import load_extended_california_housing
 
 
 def plot_learning_curve(est, X, y):
@@ -21,7 +21,7 @@ def plot_learning_curve(est, X, y):
 
 
 def plot_ridge_n_samples():
-    X, y = load_extended_boston()
+    X, y = load_extended_california_housing()
 
     plot_learning_curve(Ridge(alpha=1), X, y)
     plot_learning_curve(LinearRegression(), X, y)

@@ -3,10 +3,9 @@ import pandas as pd
 import os
 from scipy import signal
 from sklearn.preprocessing import MinMaxScaler, PolynomialFeatures
-from sklearn.datasets import make_blobs
-from sklearn.utils import Bunch
+from sklearn.datasets import fetch_california_housing, make_blobs
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "data")
+DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data")
 
 
 def make_forge():
@@ -27,26 +26,18 @@ def make_wave(n_samples=100):
     return x.reshape(-1, 1), y
 
 
-def load_boston():
-    try:
-        from sklearn.datasets import load_boston
-        return load_boston()
-    except ImportError:
-        pass
-    data_url = "http://lib.stat.cmu.edu/datasets/boston"
-    raw_df = pd.read_csv(data_url, sep="\s+", skiprows=22, header=None)
-    data = np.hstack([raw_df.values[::2, :], raw_df.values[1::2, :2]])
-    target = raw_df.values[1::2, 2]
-    return Bunch(data=data, target=target)
+def load_extended_california_housing(n_samples=1000, random_state=0):
+    """Load a reproducible housing sample and add polynomial features.
 
-
-def load_extended_boston():
-    boston = load_boston()
-    X = boston.data
-
-    X = MinMaxScaler().fit_transform(boston.data)
+    Sampling keeps runtime comparable to the small Boston dataset used in the
+    original notebooks while relying on a supported, ethically sound dataset.
+    """
+    housing = fetch_california_housing()
+    rng = np.random.default_rng(random_state)
+    indices = rng.choice(len(housing.data), size=n_samples, replace=False)
+    X = MinMaxScaler().fit_transform(housing.data[indices])
     X = PolynomialFeatures(degree=2, include_bias=False).fit_transform(X)
-    return X, boston.target
+    return X, housing.target[indices]
 
 
 def load_citibike():

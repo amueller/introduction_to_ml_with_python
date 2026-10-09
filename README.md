@@ -6,11 +6,9 @@ This repository holds the code for the forthcoming book "Introduction to Machine
 Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido).
 You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do).
 
-The book requires the current stable version of scikit-learn, that is
-0.20.0.  Most of the book can also be used with previous versions of
-scikit-learn, though you need to adjust the import for everything from the
-``model_selection`` module, mostly ``cross_val_score``, ``train_test_split``
-and ``GridSearchCV``.
+The original notebooks targeted scikit-learn 0.20. The locked environment
+below updates the examples for current releases while preserving the examples'
+intent.
 
 
 This repository provides the notebooks from which the book is created, together
@@ -40,6 +38,38 @@ This has been renamed to ``plot_label_kfold`` because of a rename in
 scikit-learn.
 
 ## Setup
+
+### Reproducible setup with uv
+
+If [uv](https://docs.astral.sh/uv/) is installed, create the locked Python
+environment and start JupyterLab with:
+
+```bash
+uv sync
+uv run jupyter lab
+```
+
+Open any of the chapter notebooks after JupyterLab starts. The lock file pins
+the complete Python dependency set. The examples are tested with Python 3.14;
+the project accepts Python 3.11 through 3.14.
+
+The Python `graphviz` package does not include the Graphviz `dot` executable.
+Install Graphviz with the operating system's package manager to run the tree
+visualization cells.
+
+The text-processing chapter also needs the external `aclImdb` dataset. Extract
+it as `data/aclImdb` before running that chapter from start to finish.
+It also requires spaCy's small English model:
+
+```bash
+uv run python -m spacy download en_core_web_sm
+```
+
+Chapter 7 performs several cross-validated grid searches and topic-model fits
+over 25,000 reviews, so a complete run can take substantially longer than the
+other chapters.
+
+### Other installation methods
 
 To run the code, you need the packages ``numpy``, ``scipy``, ``scikit-learn``, ``matplotlib``, ``pandas`` and ``pillow``.
 Some of the visualizations of decision trees and neural networks structures also require ``graphviz``. The chapter
@@ -72,7 +102,7 @@ For the chapter on text processing you also need to install ``nltk`` and ``spacy
 ### Downloading English language model
 For the text processing chapter, you need to download the English language model for spacy using
 
-    python -m spacy download en
+    python -m spacy download en_core_web_sm
 
 ## Submitting Errata
 
